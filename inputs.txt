@@ -1,0 +1,8 @@
+# time_start, time_end, text, position_x, position_y, font, font_size
+0:00:00,0:00:06, "Turkey family in the forest", 50, 650, DejaVuSans, 36
+0:00:08,0:00:12, "Here are all the females ...", 50, 650, DejaVuSans, 36
+0:00:12,0:00:20, "...along with a couple of young males.", 50, 650, DejaVuSans, 36
+0:00:20,0:00:24, "Males have a feather hanging on their necks.", 50, 650, DejaVuSans, 36
+0:00:41,0:00:46, "The two adult males bring up the rear...", 50, 650, DejaVuSans, 36
+0:00:47,0:00:52, "They appear more 'alert' and poised.", 50, 650, DejaVuSans, 36
+0:00:53,0:00:59, "Both stop at the 'clearing' - and look around... before proceeding...", 50, 650, DejaVuSans, 36
