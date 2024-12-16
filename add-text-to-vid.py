@@ -29,7 +29,8 @@ def parse_text_file(file_path: str) -> list:
                     'start_time': time,
                     'end_time': end_time,
                     'text': text,
-                    'position': (int(x), int(y)),
+                    'x': x,
+                    'y': y,
                     'font': font,
                     'font_size': int(size)
                 })
@@ -51,9 +52,12 @@ def generate_ffmpeg_command(input_video: str, text_file: str, text_dict: dict, o
     start_time_seconds = convert_to_seconds(text_dict['start_time'])
     end_time_seconds = convert_to_seconds(text_dict['end_time'])
 
+    x_position = f"(w-text_w)/2" if text_dict['x'] == "C" else text_dict['x']
+    y_position = f"(h-text_h)/2" if text_dict['y'] == "C" else text_dict['y']
+
     filter_string = (
         f"drawtext=fontfile=/usr/share/fonts/truetype/{text_dict['font']}.ttf: "
-        f"textfile='{text_file}': x={text_dict['position'][0]}: y={text_dict['position'][1]}: "
+        f"textfile='{text_file}': x={x_position}: y={y_position}: "
         f"fontsize={text_dict['font_size']}: fontcolor=white: "
         f"enable='between(t,{start_time_seconds},{end_time_seconds})'"
     )
@@ -84,7 +88,7 @@ def run_ffmpeg(command: str):
     """
     Execute the FFmpeg command.
 
-    :param command: The FFmpeg command string to execute.
+    :param command: The FFmpeg commPand string to execute.
     """
     logging.info(f"Running FFmpeg command: {command}")
     try:
